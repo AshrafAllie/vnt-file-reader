@@ -1,0 +1,27 @@
+Date: 28June2013Fri21:39
+File: vnt_file_reader.text
+Desc: This file explains the vnt_file_reader.c file
+
+This program reads in a vnt file and displays its contents stripping the
+beginning 2 lines, the last 3 lines and replacing the hexadecimal values with
+their characters.
+
+It opens the file and sets the file pointer to the end of the file counting 54
+characters backwards. This sets the file pointer to the end of the 4th last
+line. The file pointers location is recorded and stored in the variable "len"
+which represents the new end of the file location.
+
+The file pointer is reset to the 3rd line where your message begins.
+
+While the file pointer has not reached the end of the file, it reads in a
+character and checks whether it is a hexadecimal character or a newline which
+begins with the equal sign.
+
+It checks the hexadecimal value which is stored in the "hex" array variable for:
++-------+----------+
+| Hex   | Replaced |
+| Value | with     |
++-------+----------+
+| 0A    | \n       |
+| 3D    | =        |
++-------+----------+
