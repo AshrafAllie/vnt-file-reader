@@ -1,6 +1,6 @@
 vnt-file-reader
 ===============
-
+<pre>
 This program reads in a vnt file and displays its contents.
 
 Compile using gcc:
@@ -8,3 +8,4 @@ Compile using gcc:
 
 Example on how to run program:
  ./vnt_file_reader vNote.vnt
+<pre>
