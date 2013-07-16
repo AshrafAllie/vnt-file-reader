@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
  FILE *fp;
  int c;
  int len;
- unsigned char hex[2] = {'\0', '\0'};
+ unsigned char hex[6] = {'\0', '\0', '\0', '\0', '\0', '\0'};
  unsigned char is_hex = 0;
 
  if (argc == 2)
@@ -63,11 +63,92 @@ int main(int argc, char *argv[])
                printf("\n");
              else if ((hex[0] == '3') && (hex[1] == 'D'))
                     printf("=");
- 
-             hex[0] = '\0';
-             hex[1] = '\0';
-             is_hex = 0;
-             continue;
+             else if ((hex[0] == '2') && (hex[1] == 'E'))
+                    printf(".");
+             /*
+             else if ()
+                    printf("€");
+             */
+
+             if ((hex[0] != 'C') && (hex[1] != '2') ||
+                 (hex[0] != 'E') && (hex[1] != '2')
+                )
+             {
+              hex[0] = '\0';
+              hex[1] = '\0';
+              is_hex = 0;
+              continue;
+             }
+            }
+            else if ((hex[0] == 'C') && (hex[1] == '2'))
+            {
+             if (hex[2] == '\0')
+               hex[2] = c;
+             else if (hex[3] == '\0')
+             {
+              hex[3] = c;
+
+              if ((hex[2] == 'A') && (hex[3] == '3'))
+                printf("£");
+              else if ((hex[2] == 'A') && (hex[3] == '7'))
+                     printf("§");
+              else if ((hex[2] == 'A') && (hex[3] == '5'))
+                     printf("¥");
+              else if ((hex[2] == 'B') && (hex[3] == 'F'))
+                     printf("¿");
+              else if ((hex[2] == 'A') && (hex[3] == '1'))
+                     printf("¡");
+              else if ((hex[2] == 'A') && (hex[3] == '4'))
+                     printf("¤");
+              else if ((hex[2] == 'A') && (hex[3] == '2'))
+                     printf("¢");
+              else if ((hex[2] == 'A') && (hex[3] == 'B'))
+                     printf("«");
+              else if ((hex[2] == 'B') && (hex[3] == 'B'))
+                     printf("»");
+              else if ((hex[2] == 'A') && (hex[3] == 'E'))
+                     printf("®");
+              else if ((hex[2] == 'A') && (hex[3] == '9'))
+                     printf("©");
+              else if ((hex[2] == 'B') && (hex[3] == '0'))
+                     printf("°");
+
+              hex[0] = '\0';
+              hex[1] = '\0';
+              hex[2] = '\0';
+              hex[3] = '\0';
+              is_hex = 0;
+              continue;
+             }
+            }
+            else if ((hex[0] == 'E') && (hex[1] == '2'))
+            {
+             if (hex[2] == '\0')
+               hex[2] = c;
+             else if (hex[3] == '\0')
+                    hex[3] = c;
+             else if (hex[4] == '\0')
+                    hex[4] = c;
+             else if (hex[5] == '\0')
+             {
+              hex[5] = c;
+
+              if ((hex[2] == '8') && (hex[3] == '2') &&
+                  (hex[4] == 'A') && (hex[5] == 'C')
+                 )
+                printf("€");
+
+
+              hex[0] = '\0';
+              hex[1] = '\0';
+              hex[2] = '\0';
+              hex[3] = '\0';
+              hex[4] = '\0';
+              hex[5] = '\0';
+              is_hex = 0;
+              continue;
+              
+             }
             }
     }
  
