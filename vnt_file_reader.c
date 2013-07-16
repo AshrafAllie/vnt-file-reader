@@ -65,10 +65,9 @@ int main(int argc, char *argv[])
                     printf("=");
              else if ((hex[0] == '2') && (hex[1] == 'E'))
                     printf(".");
-             /*
-             else if ()
-                    printf("€");
-             */
+
+
+
 
              if ((hex[0] != 'C') && (hex[1] != '2') ||
                  (hex[0] != 'E') && (hex[1] != '2')
